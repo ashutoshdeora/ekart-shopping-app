@@ -1,0 +1,55 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="orderBook">
+            <h2><span jhiTranslate="ekartshoppingappApp.orderBook.detail.title">Order Book</span> {{orderBook.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="ekartshoppingappApp.orderBook.orderDate">Order Date</span></dt>
+                <dd>
+                    <span>{{orderBook.orderDate}}</span>
+                </dd>
+                <dt><span jhiTranslate="ekartshoppingappApp.orderBook.totalPrice">Total Price</span></dt>
+                <dd>
+                    <span>{{orderBook.totalPrice}}</span>
+                </dd>
+                <dt><span jhiTranslate="ekartshoppingappApp.orderBook.discount">Discount</span></dt>
+                <dd>
+                    <span>{{orderBook.discount}}</span>
+                </dd>
+                <dt><span jhiTranslate="ekartshoppingappApp.orderBook.priceAfterDiscount">Price After Discount</span></dt>
+                <dd>
+                    <span>{{orderBook.priceAfterDiscount}}</span>
+                </dd>
+                <dt><span jhiTranslate="ekartshoppingappApp.orderBook.orderStatus">Order Status</span></dt>
+                <dd>
+                    <span>{{orderBook.orderStatus}}</span>
+                </dd>
+                <dt><span jhiTranslate="ekartshoppingappApp.orderBook.customer">Customer</span></dt>
+                <dd>
+                    <div *ngIf="orderBook.customerId">
+                        <a [routerLink]="['/customer-my-suffix', orderBook.customerId, 'view']">{{orderBook.customerId}}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="ekartshoppingappApp.orderBook.deliveryAddress">Delivery Address</span></dt>
+                <dd>
+                    <div *ngIf="orderBook.deliveryAddressId">
+                        <a [routerLink]="['/address-my-suffix', orderBook.deliveryAddressId, 'view']">{{orderBook.deliveryAddressId}}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/order-book-my-suffix', orderBook.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

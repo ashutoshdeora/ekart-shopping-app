@@ -38,6 +38,15 @@ public class CacheConfiguration {
             cm.createCache(com.ekart.shopping.domain.User.class.getName(), jcacheConfiguration);
             cm.createCache(com.ekart.shopping.domain.Authority.class.getName(), jcacheConfiguration);
             cm.createCache(com.ekart.shopping.domain.User.class.getName() + ".authorities", jcacheConfiguration);
+            cm.createCache(com.ekart.shopping.domain.Country.class.getName(), jcacheConfiguration);
+            cm.createCache(com.ekart.shopping.domain.Product.class.getName(), jcacheConfiguration);
+            cm.createCache(com.ekart.shopping.domain.Address.class.getName(), jcacheConfiguration);
+            cm.createCache(com.ekart.shopping.domain.Contact.class.getName(), jcacheConfiguration);
+            cm.createCache(com.ekart.shopping.domain.Customer.class.getName(), jcacheConfiguration);
+            cm.createCache(com.ekart.shopping.domain.OrderBook.class.getName(), jcacheConfiguration);
+            cm.createCache(com.ekart.shopping.domain.OrderBook.class.getName() + ".orderLineItems", jcacheConfiguration);
+            cm.createCache(com.ekart.shopping.domain.Notification.class.getName(), jcacheConfiguration);
+            cm.createCache(com.ekart.shopping.domain.OrderLine.class.getName(), jcacheConfiguration);
             // jhipster-needle-ehcache-add-entry
         };
     }

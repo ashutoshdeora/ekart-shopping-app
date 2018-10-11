@@ -1,0 +1,41 @@
+{
+    "name": "Notification",
+    "fields": [
+        {
+            "fieldName": "notificationDate",
+            "fieldType": "LocalDate"
+        },
+        {
+            "fieldName": "notificationStatus",
+            "fieldType": "Float"
+        },
+        {
+            "fieldName": "reciepentAddress",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "notificationBody",
+            "fieldType": "String"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "one-to-one",
+            "relationshipName": "orderDetails",
+            "otherEntityName": "orderBook",
+            "otherEntityField": "id",
+            "ownerSide": true,
+            "otherEntityRelationshipName": "notification"
+        }
+    ],
+    "changelogDate": "20181011064541",
+    "entityTableName": "notification",
+    "dto": "mapstruct",
+    "pagination": "no",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*",
+    "angularJSSuffix": "mySuffix"
+}

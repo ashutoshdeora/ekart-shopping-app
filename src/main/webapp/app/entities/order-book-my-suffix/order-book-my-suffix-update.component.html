@@ -1,0 +1,68 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" #editForm="ngForm">
+            <h2 id="jhi-order-book-my-suffix-heading" jhiTranslate="ekartshoppingappApp.orderBook.home.createOrEditLabel">Create or edit a Order Book</h2>
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+                <div class="form-group" [hidden]="!orderBook.id">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id"
+                        [(ngModel)]="orderBook.id" readonly />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="ekartshoppingappApp.orderBook.orderDate" for="field_orderDate">Order Date</label>
+                    <div class="input-group">
+                        <input id="field_orderDate" type="text" class="form-control" name="orderDate" ngbDatepicker  #orderDateDp="ngbDatepicker" [(ngModel)]="orderBook.orderDate"
+                        />
+                        <span class="input-group-append">
+                            <button type="button" class="btn btn-secondary" (click)="orderDateDp.toggle()"><fa-icon [icon]="'calendar-alt'"></fa-icon></button>
+                        </span>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="ekartshoppingappApp.orderBook.totalPrice" for="field_totalPrice">Total Price</label>
+                    <input type="number" class="form-control" name="totalPrice" id="field_totalPrice"
+                        [(ngModel)]="orderBook.totalPrice" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="ekartshoppingappApp.orderBook.discount" for="field_discount">Discount</label>
+                    <input type="text" class="form-control" name="discount" id="field_discount"
+                        [(ngModel)]="orderBook.discount" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="ekartshoppingappApp.orderBook.priceAfterDiscount" for="field_priceAfterDiscount">Price After Discount</label>
+                    <input type="number" class="form-control" name="priceAfterDiscount" id="field_priceAfterDiscount"
+                        [(ngModel)]="orderBook.priceAfterDiscount" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="ekartshoppingappApp.orderBook.orderStatus" for="field_orderStatus">Order Status</label>
+                    <input type="text" class="form-control" name="orderStatus" id="field_orderStatus"
+                        [(ngModel)]="orderBook.orderStatus" />
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="ekartshoppingappApp.orderBook.customer" for="field_customer">Customer</label>
+                    <select class="form-control" id="field_customer" name="customer" [(ngModel)]="orderBook.customerId">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="customerOption.id" *ngFor="let customerOption of customers; trackBy: trackCustomerById">{{customerOption.id}}</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="ekartshoppingappApp.orderBook.deliveryAddress" for="field_deliveryAddress">Delivery Address</label>
+                    <select class="form-control" id="field_deliveryAddress" name="deliveryAddress" [(ngModel)]="orderBook.deliveryAddressId">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="addressOption.id" *ngFor="let addressOption of deliveryaddresses; trackBy: trackAddressById">{{addressOption.id}}</option>
+                    </select>
+                </div>
+            </div>
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary"  (click)="previousState()">
+                    <fa-icon [icon]="'ban'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+                <button type="submit" id="save-entity" [disabled]="editForm.form.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon [icon]="'save'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

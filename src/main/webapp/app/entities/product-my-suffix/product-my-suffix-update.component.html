@@ -1,0 +1,65 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" #editForm="ngForm">
+            <h2 id="jhi-product-my-suffix-heading" jhiTranslate="ekartshoppingappApp.product.home.createOrEditLabel">Create or edit a Product</h2>
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+                <div class="form-group" [hidden]="!product.id">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id"
+                        [(ngModel)]="product.id" readonly />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="ekartshoppingappApp.product.productName" for="field_productName" [ngbTooltip]="'ekartshoppingappApp.product.help.productName' | translate">Product Name</label>
+                    <input type="text" class="form-control" name="productName" id="field_productName"
+                        [(ngModel)]="product.productName" required/>
+                    <div [hidden]="!(editForm.controls.productName?.dirty && editForm.controls.productName?.invalid)">
+                        <small class="form-text text-danger"
+                        [hidden]="!editForm.controls.productName?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="ekartshoppingappApp.product.productDescription" for="field_productDescription">Product Description</label>
+                    <input type="text" class="form-control" name="productDescription" id="field_productDescription"
+                        [(ngModel)]="product.productDescription" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="ekartshoppingappApp.product.productCategory" for="field_productCategory">Product Category</label>
+                    <input type="number" class="form-control" name="productCategory" id="field_productCategory"
+                        [(ngModel)]="product.productCategory" required/>
+                    <div [hidden]="!(editForm.controls.productCategory?.dirty && editForm.controls.productCategory?.invalid)">
+                        <small class="form-text text-danger"
+                        [hidden]="!editForm.controls.productCategory?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                        <small class="form-text text-danger"
+                            [hidden]="!editForm.controls.productCategory?.errors?.number" jhiTranslate="entity.validation.number">
+                            This field should be a number.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="ekartshoppingappApp.product.availableStock" for="field_availableStock">Available Stock</label>
+                    <input type="text" class="form-control" name="availableStock" id="field_availableStock"
+                        [(ngModel)]="product.availableStock" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="ekartshoppingappApp.product.cost" for="field_cost">Cost</label>
+                    <input type="number" class="form-control" name="cost" id="field_cost"
+                        [(ngModel)]="product.cost" />
+                </div>
+
+            </div>
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary"  (click)="previousState()">
+                    <fa-icon [icon]="'ban'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+                <button type="submit" id="save-entity" [disabled]="editForm.form.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon [icon]="'save'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>
