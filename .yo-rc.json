@@ -1,0 +1,43 @@
+{
+  "generator-jhipster": {
+    "applicationType": "monolith",
+    "gitCompany": "",
+    "baseName": "ekartshoppingapp",
+    "packageName": "com.ekart.shopping",
+    "packageFolder": "com/ekart/shopping",
+    "serverPort": 8080,
+    "serviceDiscoveryType": false,
+    "authenticationType": "jwt",
+    "uaaBaseName": "../uaa",
+    "cacheProvider": "ehcache",
+    "enableHibernateCache": true,
+    "websocket": false,
+    "databaseType": "sql",
+    "devDatabaseType": "postgresql",
+    "prodDatabaseType": "postgresql",
+    "searchEngine": false,
+    "enableSwaggerCodegen": false,
+    "messageBroker": false,
+    "buildTool": "maven",
+    "useSass": false,
+    "clientPackageManager": "npm",
+    "testFrameworks": [
+      "gatling",
+      "cucumber",
+      "protractor"
+    ],
+    "enableTranslation": true,
+    "nativeLanguage": "en",
+    "languages": [
+      "hi",
+      "en"
+    ],
+    "clientFramework": "angularX",
+    "jhiPrefix": "jhi",
+    "jhipsterVersion": "5.4.2",
+    "jwtSecretKey": "NGNhZmIwNGQzNmRkNTAzMWE2ZmRhYmM3YzJkMGVjYzE3OWRhOGRmMTY3ZmM1MmE5ZTU5YWRkNmM4NDYxOWZiYWM2Y2QwZjhmMTlmNDg5NTQxMTY3MTUzNTM0NzQ5OGE1ODhkYThlZDQ5NmFiODZjNjAwNDU5NGFmYjEzYWUzOGI="
+  },
+  "git-provider": "GitHub",
+  "git-company": "ashutoshdeora",
+  "repository-name": "ekart-shopping-app"
+}
