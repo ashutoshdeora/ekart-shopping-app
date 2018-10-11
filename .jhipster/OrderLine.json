@@ -1,0 +1,47 @@
+{
+    "name": "OrderLine",
+    "fields": [
+        {
+            "fieldName": "quantity",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "rate",
+            "fieldType": "Float"
+        },
+        {
+            "fieldName": "totalPrice",
+            "fieldType": "Float"
+        },
+        {
+            "fieldName": "discount",
+            "fieldType": "Float"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipName": "orderBook",
+            "otherEntityName": "orderBook",
+            "relationshipType": "many-to-one",
+            "otherEntityField": "id"
+        },
+        {
+            "relationshipType": "one-to-one",
+            "relationshipName": "item",
+            "otherEntityName": "product",
+            "otherEntityField": "id",
+            "ownerSide": true,
+            "otherEntityRelationshipName": "orderLine"
+        }
+    ],
+    "changelogDate": "20181011095842",
+    "entityTableName": "order_line",
+    "dto": "mapstruct",
+    "pagination": "no",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*",
+    "angularJSSuffix": "mySuffix"
+}

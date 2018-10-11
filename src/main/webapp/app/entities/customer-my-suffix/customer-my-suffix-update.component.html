@@ -1,0 +1,65 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" #editForm="ngForm">
+            <h2 id="jhi-customer-my-suffix-heading" jhiTranslate="ekartshoppingappApp.customer.home.createOrEditLabel">Create or edit a Customer</h2>
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+                <div class="form-group" [hidden]="!customer.id">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id"
+                        [(ngModel)]="customer.id" readonly />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="ekartshoppingappApp.customer.customerName" for="field_customerName">Customer Name</label>
+                    <input type="text" class="form-control" name="customerName" id="field_customerName"
+                        [(ngModel)]="customer.customerName" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="ekartshoppingappApp.customer.customerCategory" for="field_customerCategory">Customer Category</label>
+                    <input type="number" class="form-control" name="customerCategory" id="field_customerCategory"
+                        [(ngModel)]="customer.customerCategory" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="ekartshoppingappApp.customer.userId" for="field_userId">User Id</label>
+                    <input type="text" class="form-control" name="userId" id="field_userId"
+                        [(ngModel)]="customer.userId" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="ekartshoppingappApp.customer.creditRating" for="field_creditRating">Credit Rating</label>
+                    <input type="text" class="form-control" name="creditRating" id="field_creditRating"
+                        [(ngModel)]="customer.creditRating" />
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="ekartshoppingappApp.customer.billToAddress" for="field_billToAddress">Bill To Address</label>
+                    <select class="form-control" id="field_billToAddress" name="billToAddress" [(ngModel)]="customer.billToAddressId">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="addressOption.id" *ngFor="let addressOption of billtoaddresses; trackBy: trackAddressById">{{addressOption.id}}</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="ekartshoppingappApp.customer.shipToAddress" for="field_shipToAddress">Ship To Address</label>
+                    <select class="form-control" id="field_shipToAddress" name="shipToAddress" [(ngModel)]="customer.shipToAddressId">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="addressOption.id" *ngFor="let addressOption of shiptoaddresses; trackBy: trackAddressById">{{addressOption.id}}</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="ekartshoppingappApp.customer.contactDetails" for="field_contactDetails">Contact Details</label>
+                    <select class="form-control" id="field_contactDetails" name="contactDetails" [(ngModel)]="customer.contactDetailsId">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="contactOption.id" *ngFor="let contactOption of contactdetails; trackBy: trackContactById">{{contactOption.id}}</option>
+                    </select>
+                </div>
+            </div>
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary"  (click)="previousState()">
+                    <fa-icon [icon]="'ban'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+                <button type="submit" id="save-entity" [disabled]="editForm.form.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon [icon]="'save'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>
