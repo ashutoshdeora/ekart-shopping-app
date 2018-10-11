@@ -1,0 +1,44 @@
+{
+    "name": "Product",
+    "fields": [
+        {
+            "fieldName": "productName",
+            "javadoc": "The firstname attribute.",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "productDescription",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "productCategory",
+            "fieldType": "Integer",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "availableStock",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "cost",
+            "fieldType": "Float"
+        }
+    ],
+    "relationships": [],
+    "changelogDate": "20181011095836",
+    "javadoc": "The Product entity.",
+    "entityTableName": "product",
+    "dto": "mapstruct",
+    "pagination": "infinite-scroll",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*",
+    "angularJSSuffix": "mySuffix"
+}

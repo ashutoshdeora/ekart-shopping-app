@@ -1,0 +1,33 @@
+{
+    "name": "Contact",
+    "fields": [
+        {
+            "fieldName": "mobile",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "workPhone",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "homePhone",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "email",
+            "fieldType": "String"
+        }
+    ],
+    "relationships": [],
+    "changelogDate": "20181011095838",
+    "javadoc": "The Contact entity.",
+    "entityTableName": "contact",
+    "dto": "mapstruct",
+    "pagination": "no",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*",
+    "angularJSSuffix": "mySuffix"
+}

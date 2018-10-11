@@ -1,0 +1,51 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="orderLine">
+            <h2><span jhiTranslate="ekartshoppingappApp.orderLine.detail.title">Order Line</span> {{orderLine.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="ekartshoppingappApp.orderLine.quantity">Quantity</span></dt>
+                <dd>
+                    <span>{{orderLine.quantity}}</span>
+                </dd>
+                <dt><span jhiTranslate="ekartshoppingappApp.orderLine.rate">Rate</span></dt>
+                <dd>
+                    <span>{{orderLine.rate}}</span>
+                </dd>
+                <dt><span jhiTranslate="ekartshoppingappApp.orderLine.totalPrice">Total Price</span></dt>
+                <dd>
+                    <span>{{orderLine.totalPrice}}</span>
+                </dd>
+                <dt><span jhiTranslate="ekartshoppingappApp.orderLine.discount">Discount</span></dt>
+                <dd>
+                    <span>{{orderLine.discount}}</span>
+                </dd>
+                <dt><span jhiTranslate="ekartshoppingappApp.orderLine.orderBook">Order Book</span></dt>
+                <dd>
+                    <div *ngIf="orderLine.orderBookId">
+                        <a [routerLink]="['/order-book-my-suffix', orderLine.orderBookId, 'view']">{{orderLine.orderBookId}}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="ekartshoppingappApp.orderLine.item">Item</span></dt>
+                <dd>
+                    <div *ngIf="orderLine.itemId">
+                        <a [routerLink]="['/product-my-suffix', orderLine.itemId, 'view']">{{orderLine.itemId}}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/order-line-my-suffix', orderLine.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>
