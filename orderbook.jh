@@ -1,0 +1,110 @@
+
+entity Country {
+	countryName String
+}
+
+/**
+ * The Product entity.
+ */
+entity Product {
+	/**
+	* The firstname attribute.
+	*/
+	productName String required,
+	productDescription String,
+	productCategory Integer required,
+	availableStock String,
+	cost Float
+	
+}
+
+/**
+ * The Address entity.
+ */
+entity Address {
+	
+	address1 String,
+	address2 String,
+	city String,
+	state String,
+	zip String
+	
+}
+
+/**
+ * The Contact entity.
+ */
+entity Contact {
+	mobile String,
+	workPhone String,
+	homePhone String,
+	email String	
+}
+
+/**
+ * The Customer entity.
+ */
+entity Customer {
+
+customerName String,
+customerCategory Long,
+userId String,
+creditRating String
+
+}
+
+relationship OneToOne {
+Customer{billToAddress} to Address,
+Customer{shipToAddress} to Address,
+Customer{contactDetails} to Contact,
+Address{country} to Country
+OrderBook{customer} to Customer,
+OrderBook{deliveryAddress} to Address,
+OrderLine{item} to Product,
+Notification{orderDetails} to OrderBook
+}
+
+entity OrderBook {
+
+orderDate LocalDate,
+totalPrice Float,
+discount String,
+priceAfterDiscount Float,
+orderStatus String
+}
+
+entity Notification {
+
+notificationDate LocalDate,
+notificationStatus Float,
+reciepentAddress String,
+notificationBody String
+}
+
+entity OrderLine {
+
+quantity Integer,
+rate Float,
+totalPrice Float,
+discount Float
+}
+
+/*
+enum Language {
+    FRENCH, ENGLISH, SPANISH
+}
+*/
+// defining multiple OneToMany relationships with comments
+relationship OneToMany {
+	OrderBook{orderLineItem} to OrderLine	
+}
+
+// Set pagination options
+paginate Product with infinite-scroll
+
+dto * with mapstruct
+
+// Set service options to all except few
+service all with serviceImpl
+// Set an angular suffix
+angularSuffix * with mySuffix

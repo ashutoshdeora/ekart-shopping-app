@@ -1,0 +1,59 @@
+{
+    "name": "OrderBook",
+    "fields": [
+        {
+            "fieldName": "orderDate",
+            "fieldType": "LocalDate"
+        },
+        {
+            "fieldName": "totalPrice",
+            "fieldType": "Float"
+        },
+        {
+            "fieldName": "discount",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "priceAfterDiscount",
+            "fieldType": "Float"
+        },
+        {
+            "fieldName": "orderStatus",
+            "fieldType": "String"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "one-to-one",
+            "relationshipName": "customer",
+            "otherEntityName": "customer",
+            "otherEntityField": "id",
+            "ownerSide": true,
+            "otherEntityRelationshipName": "orderBook"
+        },
+        {
+            "relationshipType": "one-to-one",
+            "relationshipName": "deliveryAddress",
+            "otherEntityName": "address",
+            "otherEntityField": "id",
+            "ownerSide": true,
+            "otherEntityRelationshipName": "orderBook"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "relationshipName": "orderLineItem",
+            "otherEntityName": "orderLine",
+            "otherEntityRelationshipName": "orderBook"
+        }
+    ],
+    "changelogDate": "20181011064540",
+    "entityTableName": "order_book",
+    "dto": "mapstruct",
+    "pagination": "no",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*",
+    "angularJSSuffix": "mySuffix"
+}
